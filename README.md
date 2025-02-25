@@ -1,5 +1,6 @@
 # nodebird 프로젝트 AWS lightSail로 배포하기
 
+## 배포 절차
 ### 1. 인스턴스 화면에서 Connect using SSH 클릭
 
 ![Image](https://github.com/user-attachments/assets/43be48bb-5982-4129-adf6-1a2219c51a3e)
@@ -95,3 +96,14 @@ $ sudo npm i -g pm2
 $ sudo NODE_ENV=production PORT=80 pm2 start server.js -i 0
 ```
 ![Image](https://github.com/user-attachments/assets/f4fbbd1c-6ef4-471b-8437-6495ab6a7e73)
+
+## 오류 해결
+- 포트를 8001로 명시적으로 설정
+- lightsail 방화벽에서 8001 포트를 열어두었음.
+- 서버가 외부 IPv4(0.0.0.0)에서 들어오는 연결을 수락하도록 설정하였음.
+    - `0.0.0.0/0`으로 입력해야 Any IPv4가 됨.
+![Image](https://github.com/user-attachments/assets/51ccf14e-11aa-47c8-bddd-d637038c1eba)
+
+![Image](https://github.com/user-attachments/assets/5aa5d544-71c6-413e-8055-5ce91f68213e)
+
+![Image](https://github.com/user-attachments/assets/652ab2d7-5159-48ea-ac6b-bb6dee9ba6d1)
